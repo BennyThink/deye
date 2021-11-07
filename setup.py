@@ -11,7 +11,7 @@ from setuptools import setup
 
 setup(
     name='deye',
-    version='0.0.2',
+    version='0.0.3',
     py_modules=['deye','cli','config','mqtt','storage'],
     install_requires=[
         'Click',
