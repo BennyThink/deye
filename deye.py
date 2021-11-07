@@ -45,12 +45,12 @@ class E12A3Workflow(Workflow):
 
     def __validate(self):
         if self._session.get(USER_INFO).json()["meta"]["code"] != 0:
-            logging.info("⚠️ Invalid user, please check your username or password.")
+            logging.critical("⚠️ Invalid user, please check your username or password.")
             return False
         return True
 
     def __app_login(self):
-        logging.info("Login to app...")
+        logging.debug("Login to app...")
         data = requests.post(
             LOGIN_URL,
             data={
@@ -76,13 +76,13 @@ class E12A3Workflow(Workflow):
 
     @property
     def device_list(self):
-        logging.info("Get device list...")
+        logging.debug("Get device list...")
         data = self._session.get(DEVICE_LIST_URL).json()
         return data
 
     @property
     def mtqq_info(self):
-        logging.info("Get mtqq info...")
+        logging.debug("Get mtqq info...")
         data = self._session.get(MTQQ_INFO).json()
         # TODO or add it in db? Since it won't change frequently
         #  self._db.insert("mtqq", data)

@@ -41,7 +41,7 @@ class DYD_E12A3(Device):
         def on_connect(kwargs):
             rc = kwargs.get('rc')
             if rc == 0:
-                logging.info("Connected to MQTT Broker!")
+                logging.debug("Connected to MQTT Broker!")
             else:
                 logging.critical("Failed to connect, return code %d\n", rc)
 
@@ -56,7 +56,7 @@ class DYD_E12A3(Device):
         result = self.server.publish(self.topic, msg)
         status = result[0]
         if status == 0:
-            logging.info(f"Send `%s` to topic `%s`", msg, self.topic)
+            logging.debug(f"Send `%s` to topic `%s`", msg, self.topic)
         else:
             logging.error(f"Failed to send message to topic %s", self.topic)
 

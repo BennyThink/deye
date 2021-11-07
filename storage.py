@@ -51,7 +51,7 @@ class DBMStorage(Storage):
             return {}
 
     def insert(self, key: "str", value: "dict"):
-        logging.info("Writing to _db key %s", key)
+        logging.debug("Writing to _db key %s", key)
         value = self.json_dumps(value)
         self.db[key] = value
 
@@ -64,5 +64,5 @@ class DBMStorage(Storage):
         self.db[key] = value
 
     def select(self, key: "str"):
-        logging.info("Reading from db key %s", key)
+        logging.debug("Reading from db key %s", key)
         return self.json_loads(self.db.get(key))
