@@ -11,8 +11,9 @@ from setuptools import setup
 
 setup(
     name='deye',
-    version='0.0.3',
+    version='0.0.4',
     py_modules=['deye','cli','config','mqtt','storage'],
+     url='https://github.com/BennyThink/deye',
     install_requires=[
         'Click',
         'requests',
